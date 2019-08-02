@@ -1,0 +1,31 @@
+.Screen{
+    height: calc(2*(100vh/7));
+    width: 100%;
+}
+
+.TopScreen {
+    height: 50%;
+    /* padding-right: 30px; */
+    background-color: #fdd7ea;
+    color: rgba(249, 121, 185, 0.702);
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: right;
+    font-size: 24px;
+}
+.TopScreen span{
+   margin: 30px auto;
+}
+
+
+.BottomScreen{
+    box-sizing: border-box;
+    height: 50%;
+    background-color: #fef1f8;
+    color: rgba(249, 121, 185, 0.702);
+    line-height: 1.2;
+    font-size: 46px;
+    text-align: right;
+    text-justify: inter-cluster;
+    padding: 0 30px;
+}
