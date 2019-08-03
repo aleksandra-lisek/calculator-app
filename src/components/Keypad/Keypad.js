@@ -1,11 +1,11 @@
-/* eslint no-undef: 0 */ // --> OFF
 import React from 'react';
 
 import Button from '../Button/Button';
 import classes from './Keypad.module.css';
 
 
-const keypad = () => {
+const keypad = (props) => {
+
   const keypadKeys = [
     ['c', '+/-', '%', '/'],
     ['7', '8', '9', '*'],
@@ -14,13 +14,28 @@ const keypad = () => {
     ['0', '.', 'DEL', '='],
   ];
 
-
+  const handleClick = (key) => {
+    switch (key) {
+      case 'c':
+        props.clear();
+        break;
+      case 'DEL':
+        props.delete();
+        break;
+      case '=':
+        props.evaluate();
+        break;
+      default:
+        props.calculate(key);
+    }
+  };
 
   const buttons = keypadKeys.map((block) => {
     return block.map(key => (
       <Button
         key={key}
         buttonKey={key}
+        onButtonClick={handleClick}
       />
     ));
 

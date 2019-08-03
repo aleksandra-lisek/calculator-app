@@ -4,12 +4,12 @@ import classes from './Button.module.css';
 
 
 const button = (props) => {
-
-  const { buttonKey } = props;
-
+  const { buttonKey, onButtonClick } = props;
+  const handleClick = (e) => { onButtonClick(e.target.textContent); };
   return (
     <button
       className={classes.Button}
+      onClick={handleClick}
       type="button"
     >
       {buttonKey}
@@ -17,9 +17,5 @@ const button = (props) => {
   );
 };
 
-// button.propTypes = {
-//   buttonKey: PropTypes.string.isRequired,
-//   onButtonClick: PropTypes.func.isRequired,
-// };
 
 export default button;
