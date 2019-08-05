@@ -6,7 +6,7 @@ import Screen from './components/Screen/Screen';
 import Keypad from './components/Keypad/Keypad';
 import * as fromCalculator from './store/storeIndex';
 import {
-  calculate, deleteLastEntry, clear, evaluateExpression,
+  calculate, deleteLastEntry, clear, evaluateExpression, percent,
 } from './store/actions/calculate';
 
 export class App extends React.PureComponent {
@@ -41,6 +41,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     evaluate: () => {
       dispatch(evaluateExpression());
+    },
+    percent: () => {
+      dispatch(percent());
     },
   };
 }

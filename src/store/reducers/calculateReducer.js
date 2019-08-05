@@ -3,7 +3,7 @@ import calculate from '../../expressions/calculate';
 
 const initialState = {
   expression: '',
-  counter: 0,
+  total: 0,
 
 };
 
@@ -56,6 +56,16 @@ export default (state = initialState, action) => {
         expression: '',
         total: calculate(state.expression) || state.expression || state.total,
       };
+    case types.PERCENT: {
+      const exp = state.expression;
+      const numToPerc = exp.match(/[0-9.,]+$/)[0];
+      const afterPerc = Number(numToPerc) / 100;
+      const newExp = exp.replace(/[0-9.,]+$/, afterPerc);
+      return {
+        ...state,
+        expression: newExp,
+        total: calculate(newExp),
+      }; }
     default:
       return state;
   }

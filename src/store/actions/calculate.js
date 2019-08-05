@@ -26,3 +26,9 @@ export const evaluateExpression = () => {
     type: types.EVALUATE_EXPRESSION,
   };
 };
+
+export const percent = () => {
+  return {
+    type: types.PERCENT,
+  };
+};

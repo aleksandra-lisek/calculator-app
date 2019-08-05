@@ -25,6 +25,9 @@ const keypad = (props) => {
       case '=':
         props.evaluate();
         break;
+      case '%':
+        props.percent();
+        break;
       default:
         props.calculate(key);
     }
@@ -50,6 +53,7 @@ keypad.propTypes = {
   delete: propTypes.func.isRequired,
   evaluate: propTypes.func.isRequired,
   calculate: propTypes.func.isRequired,
+  percent: propTypes.func.isRequired,
 };
 
 export default keypad;
