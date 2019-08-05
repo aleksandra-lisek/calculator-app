@@ -21,7 +21,7 @@ class Button extends React.PureComponent {
 
 Button.propTypes = {
   buttonKey: propTypes.string.isRequired,
-  onButtonClick: propTypes.isRequired,
+  onButtonClick: propTypes.func.isRequired,
 };
 
 export default Button;
