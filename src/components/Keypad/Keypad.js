@@ -2,21 +2,14 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import Button from '../Button/Button';
+import { keypadKeys } from '../constants';
 import classes from './Keypad.module.css';
 
 
 const keypad = (props) => {
-  const keypadKeys = [
-    ['c', '+/-', '%', '/'],
-    ['7', '8', '9', '*'],
-    ['4', '5', '6', '-'],
-    ['1', '2', '3', '+'],
-    ['0', '.', 'DEL', '='],
-  ];
-
   const handleClick = (key) => {
     switch (key) {
-      case 'c':
+      case 'C':
         props.clear();
         break;
       case 'DEL':

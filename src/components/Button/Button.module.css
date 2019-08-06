@@ -1,13 +1,56 @@
+@font-face {
+    font-family: 'SamsungSharpSans-regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../assets/fonts/SamsungSharpSans-Regular.woff');
+      
+  }
+
+  @font-face {
+    font-family: 'SamsungSharpSans-medium';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../../assets/fonts/SamsungSharpSans-Medium.woff');
+    
+}
+
 .Button{
     width:25%;
     height:20%;
     display: inline-block;
     border: none;
-    padding: 1rem 2rem;
     margin: 0;
     text-decoration: none;
-    background-color: #ffffff;
-    color:  #7f7f7f;
     line-height: 1.2;
     font-size: 30px;
 }
+
+.SpecialButton{
+    font-family: 'SamsungSharpSans-medium', Helvetica, sans-serif;
+    background-color: #d7d7d7;
+    color: #6b6b6b;
+}
+
+.SpecialButton:hover{
+    color: #272727;
+    font-size: 32px;
+  }
+
+
+.RegularButton{
+    font-family: 'SamsungSharpSans-regular', Helvetica, sans-serif;
+    background-color: #ffffff;
+    color:  #7f7f7f;
+}
+
+.RegularButton:hover{
+    /* transform: scale(1.01); */
+    color: #f979b9b3;
+    font-size: 32px;
+  }
+
+
+
+
+
+  
