@@ -33,11 +33,10 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case types.SET_EXPRESSION: {
       const expression = setExpression(state, action);
-      console.log(expression);
       return {
         ...state,
         expression,
-        total: calculate(expression),
+        total: calculate(expression) || state.total,
       }; }
     case types.CLEAR_EXPRESSION:
       return {
@@ -75,25 +74,27 @@ export default (state = initialState, action) => {
       }; }
     case types.FLIP_SIGN_OPERATION: {
       const exp = state.expression;
-      const lastNumb = exp.match(/([^\d])([0-9.,]+$)/);
-      console.log('last number', lastNumb);
+      const lastNumb = exp.match(/([^\d]|)([0-9.,]+$)/);
       let expAfterSlip = '';
+
       if (lastNumb[1] !== '-' || lastNumb[1] !== '+') {
-        expAfterSlip = exp.replace(/([^\d])([0-9.,]+$)/, '$1(-$2)');
+        expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '$1(-$2)');
       }
       if (lastNumb[1] === '-') {
-        expAfterSlip = exp.replace(/([^\d])([0-9.,]+$)/, '+$2');
+        expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '+$2');
       }
       if (lastNumb[1] === '+') {
-        expAfterSlip = exp.replace(/([^\d])([0-9.,]+$)/, '-$2');
+        expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '-$2');
       }
-      console.log('first try', lastNumb);
-      console.log('exp after flip', expAfterSlip);
+
+
       return {
         ...state,
         expression: expAfterSlip,
         total: math.evaluate(expAfterSlip),
-      }; }
+      };
+    }
+
     default:
       return state;
   }
