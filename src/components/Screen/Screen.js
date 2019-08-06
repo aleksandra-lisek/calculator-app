@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import classes from './Screen.module.css';
 
@@ -17,5 +18,9 @@ const screen = (props) => {
   );
 };
 
+screen.propTypes = {
+  expression: propTypes.string.isRequired,
+  total: propTypes.number.isRequired,
+};
 
 export default screen;
