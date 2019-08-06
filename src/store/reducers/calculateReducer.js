@@ -33,10 +33,11 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case types.SET_EXPRESSION: {
       const expression = setExpression(state, action);
+      console.log(expression);
       return {
         ...state,
         expression,
-        total: calculate(expression) || state.total,
+        total: calculate(expression),
       }; }
     case types.CLEAR_EXPRESSION:
       return {
@@ -50,16 +51,17 @@ export default (state = initialState, action) => {
         .split('')
         .slice(0, exp.length - 1)
         .join('');
+      // add 0 when you del last element
       return {
         ...state,
         expression: exp,
-        total: calculate(exp),
+        total: math.evaluate(exp),
       }; }
     case types.EVALUATE_EXPRESSION:
       return {
         ...state,
         expression: '',
-        total: calculate(state.expression) || state.expression || state.total,
+        total: math.evaluate(state.expression),
       };
     case types.PERCENT: {
       const exp = state.expression;
@@ -69,21 +71,28 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expression: newExp,
-        total: calculate(newExp),
+        total: math.evaluate(newExp),
       }; }
     case types.FLIP_SIGN_OPERATION: {
       const exp = state.expression;
-      const lastNumb = exp.match(/[0-9.,]+$/)[0];
+      const lastNumb = exp.match(/([^\d])([0-9.,]+$)/);
       console.log('last number', lastNumb);
-      const numbAfterSlip = Number(lastNumb) * -1;
-      console.log('number after flip', numbAfterSlip);
-      // const newExp = exp.replace(/[0-9.,]+$/, numbAfterSlip);
-      const newExp = '86+78*(-4)';
-      console.log('new expression', newExp);
+      let expAfterSlip = '';
+      if (lastNumb[1] !== '-' || lastNumb[1] !== '+') {
+        expAfterSlip = exp.replace(/([^\d])([0-9.,]+$)/, '$1(-$2)');
+      }
+      if (lastNumb[1] === '-') {
+        expAfterSlip = exp.replace(/([^\d])([0-9.,]+$)/, '+$2');
+      }
+      if (lastNumb[1] === '+') {
+        expAfterSlip = exp.replace(/([^\d])([0-9.,]+$)/, '-$2');
+      }
+      console.log('first try', lastNumb);
+      console.log('exp after flip', expAfterSlip);
       return {
         ...state,
-        expression: newExp,
-        total: math.evaluate(newExp),
+        expression: expAfterSlip,
+        total: math.evaluate(expAfterSlip),
       }; }
     default:
       return state;
