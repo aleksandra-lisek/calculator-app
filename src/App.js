@@ -8,18 +8,19 @@ import * as fromCalculator from './store/storeIndex';
 import {
   calculate, deleteLastEntry, clear, evaluateExpression, percent, flipSignOperation,
 } from './store/actions/calculate';
+import desktopImage from './assets/images/calc_desktop.png';
 
-export class App extends React.PureComponent {
-  render() {
-    return (
-      <div className={classes.App}>
-        <Screen {...this.props} />
-        <Keypad {...this.props} />
-      </div>
+const App = (props) => {
+  const imageUrl = window.innerWidth >= 650 ? desktopImage : 'none';
 
-    );
-  }
-}
+  return (
+    <div className={classes.App} style={{ backgroundImage: `url(${imageUrl})` }}>
+      <Screen {...props} />
+      <Keypad {...props} />
+    </div>
+
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
