@@ -1,5 +1,10 @@
+import { create, all } from 'mathjs';
+
 import * as types from '../types';
 import calculate from '../../expressions/calculate';
+
+const config = { };
+const math = create(all, config);
 
 const initialState = {
   expression: '',
@@ -65,6 +70,20 @@ export default (state = initialState, action) => {
         ...state,
         expression: newExp,
         total: calculate(newExp),
+      }; }
+    case types.FLIP_SIGN_OPERATION: {
+      const exp = state.expression;
+      const lastNumb = exp.match(/[0-9.,]+$/)[0];
+      console.log('last number', lastNumb);
+      const numbAfterSlip = Number(lastNumb) * -1;
+      console.log('number after flip', numbAfterSlip);
+      // const newExp = exp.replace(/[0-9.,]+$/, numbAfterSlip);
+      const newExp = '86+78*(-4)';
+      console.log('new expression', newExp);
+      return {
+        ...state,
+        expression: newExp,
+        total: math.evaluate(newExp),
       }; }
     default:
       return state;

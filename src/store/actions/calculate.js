@@ -32,3 +32,9 @@ export const percent = () => {
     type: types.PERCENT,
   };
 };
+
+export const flipSignOperation = () => {
+  return {
+    type: types.FLIP_SIGN_OPERATION,
+  };
+};
