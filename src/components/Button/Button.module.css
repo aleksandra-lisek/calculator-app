@@ -44,7 +44,6 @@
 }
 
 .RegularButton:hover{
-    /* transform: scale(1.01); */
     color: #f979b9b3;
     font-size: 32px;
   }

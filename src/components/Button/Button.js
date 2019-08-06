@@ -5,7 +5,6 @@ import classes from './Button.module.css';
 import { specialKeys } from '../constants';
 
 class Button extends React.PureComponent {
-
   render() {
     const { buttonKey, onButtonClick } = this.props;
     const handleClick = (e) => { onButtonClick(e.target.textContent); };

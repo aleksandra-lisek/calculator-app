@@ -19,29 +19,32 @@
     width: 100%;
 }
 
-.TopScreen {
+.HalfScreen{
+    box-sizing: border-box;
     height: 50%;
-    font-family: 'SamsungSharpSans-bold', Helvetica, sans-serif;
-    background-color: #fdd7ea;
-    color: rgba(249, 121, 185, 0.702);
-    /* font-weight: bold; */
     line-height: 1.2;
     text-align: right;
-    font-size: 24px;
+    display: flex;
+    text-align: right;
 }
-.TopScreen span{
-   margin: 30px auto;
+
+.HalfScreen span{
+    margin: 30px 20px;
+    width: 100%;
+}
+
+.TopScreen {
+    font-family: 'SamsungSharpSans-bold', Helvetica, sans-serif;
+    background-color: #fdd7ea;
+    color: #f979b9b3;
+    font-size: 24px;
 }
 
 
 .BottomScreen{
-    box-sizing: border-box;
     font-family: 'SamsungSharpSans-regular', Helvetica, sans-serif;
     height: 50%;
     background-color: #fef1f8;
-    color: rgba(249, 121, 185, 0.702);
-    line-height: 1.2;
-    font-size: 46px;
-    text-align: right;
-    padding: 0 30px;
+    color: #f979b9b3;
+    font-size: 48px;
 }

@@ -8,10 +8,10 @@ const screen = (props) => {
 
   return (
     <div className={classes.Screen}>
-      <div className={classes.TopScreen}>
+      <div className={[classes.HalfScreen, classes.TopScreen].join(' ')}>
         <span>{expression}</span>
       </div>
-      <div className={classes.BottomScreen}>
+      <div className={[classes.HalfScreen, classes.BottomScreen].join(' ')}>
         <span>{total}</span>
       </div>
     </div>
