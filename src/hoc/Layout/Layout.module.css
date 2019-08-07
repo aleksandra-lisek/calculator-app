@@ -1,0 +1,16 @@
+.Layout{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+
+/* @media (min-width: 650px) {
+    .Calculator {
+        width: 370px;
+        height: 650px;
+    }
+  } */
