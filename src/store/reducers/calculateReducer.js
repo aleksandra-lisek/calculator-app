@@ -50,11 +50,12 @@ export default (state = initialState, action) => {
         .split('')
         .slice(0, exp.length - 1)
         .join('');
+      const newTotal = (exp.length === 0) ? 0 : math.evaluate(exp);
       // add 0 when you del last element
       return {
         ...state,
         expression: exp,
-        total: math.evaluate(exp),
+        total: newTotal,
       }; }
     case types.EVALUATE_EXPRESSION:
       return {
