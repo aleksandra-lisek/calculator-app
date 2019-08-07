@@ -87,13 +87,22 @@ export default (state = initialState, action) => {
         expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '-$2');
       }
 
-
       return {
         ...state,
         expression: expAfterSlip,
         total: math.evaluate(expAfterSlip),
-      };
-    }
+      }; }
+    case types.DOT_INPUT: {
+      const exp = state.expression;
+      let newExp = exp;
+      if (!newExp.includes('.')) {
+        newExp += '.';
+      }
+      return {
+        ...state,
+        expression: newExp,
+        total: math.evaluate(newExp),
+      }; }
 
     default:
       return state;

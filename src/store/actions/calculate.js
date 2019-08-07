@@ -38,3 +38,9 @@ export const flipSignOperation = () => {
     type: types.FLIP_SIGN_OPERATION,
   };
 };
+
+export const dotInput = () => {
+  return {
+    type: types.DOT_INPUT,
+  };
+};

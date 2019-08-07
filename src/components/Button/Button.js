@@ -12,6 +12,7 @@ class Button extends React.PureComponent {
       classes.Button,
       specialKeys.includes(buttonKey) ? classes.SpecialButton : classes.RegularButton,
     ];
+
     return (
       <button
         className={classNames.join(' ').trim()}

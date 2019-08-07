@@ -9,3 +9,5 @@ export const EVALUATE_EXPRESSION = 'EVALUATE_EXPRESSION';
 export const PERCENT = 'PERCENT';
 
 export const FLIP_SIGN_OPERATION = 'FLIP_SIGN_OPERATION';
+
+export const DOT_INPUT = 'DOT_INPUT';
