@@ -51,18 +51,19 @@ export default (state = initialState, action) => {
         .slice(0, exp.length - 1)
         .join('');
       const newTotal = (exp.length === 0) ? 0 : math.evaluate(exp);
-      // add 0 when you del last element
       return {
         ...state,
         expression: exp,
         total: newTotal,
       }; }
-    case types.EVALUATE_EXPRESSION:
+    case types.EVALUATE_EXPRESSION: {
+      const exp = state.expression;
+      const newTotal = (exp.length === 0) ? 0 : math.evaluate(exp);
       return {
         ...state,
         expression: '',
-        total: math.evaluate(state.expression),
-      };
+        total: newTotal,
+      }; }
     case types.PERCENT: {
       const exp = state.expression;
       const numToPerc = exp.match(/[0-9.,]+$/)[0];
