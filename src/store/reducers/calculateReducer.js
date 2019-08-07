@@ -105,7 +105,20 @@ export default (state = initialState, action) => {
         expression: newExp,
         total: math.evaluate(newExp),
       }; }
-
+    case types.DIVIDING_BY_ZERO: {
+      const exp = state.expression;
+      const newExp = `${exp}0`;
+      let newTotal = '';
+      if (newExp.includes('/0')) {
+        newTotal = "Don't divide by ZERO!";
+      } else {
+        newTotal = math.evaluate(newExp);
+      }
+      return {
+        ...state,
+        expression: newExp,
+        total: newTotal,
+      }; }
     default:
       return state;
   }

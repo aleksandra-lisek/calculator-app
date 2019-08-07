@@ -44,3 +44,10 @@ export const dotInput = () => {
     type: types.DOT_INPUT,
   };
 };
+
+export const dividingByZero = (key) => {
+  return {
+    type: types.DIVIDING_BY_ZERO,
+    payload: key,
+  };
+};

@@ -27,6 +27,9 @@ const keypad = (props) => {
       case '.':
         props.dotInput();
         break;
+      case '0':
+        props.dividingByZero(key);
+        break;
       default:
         props.calculate(key);
     }
@@ -55,6 +58,7 @@ keypad.propTypes = {
   percent: propTypes.func.isRequired,
   flipSignOperation: propTypes.func.isRequired,
   dotInput: propTypes.func.isRequired,
+  dividingByZero: propTypes.func.isRequired,
 };
 
 export default keypad;

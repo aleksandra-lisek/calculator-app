@@ -6,7 +6,14 @@ import Screen from '../Screen/Screen';
 import Keypad from '../Keypad/Keypad';
 import * as fromCalculator from '../../store/storeIndex';
 import {
-  calculate, deleteLastEntry, clear, evaluateExpression, percent, flipSignOperation, dotInput,
+  calculate, 
+  deleteLastEntry,
+  clear,
+  evaluateExpression,
+  percent,
+  flipSignOperation,
+  dotInput,
+  dividingByZero,
 } from '../../store/actions/calculate';
 
 const Calculator = (props) => {
@@ -48,6 +55,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     dotInput: () => {
       dispatch(dotInput());
+    },
+    dividingByZero: () => {
+      dispatch(dividingByZero());
     },
   };
 };

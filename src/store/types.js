@@ -11,3 +11,5 @@ export const PERCENT = 'PERCENT';
 export const FLIP_SIGN_OPERATION = 'FLIP_SIGN_OPERATION';
 
 export const DOT_INPUT = 'DOT_INPUT';
+
+export const DIVIDING_BY_ZERO = 'DIVIDING_BY_ZERO';
