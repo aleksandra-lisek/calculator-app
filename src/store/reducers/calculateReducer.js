@@ -74,17 +74,19 @@ export default (state = initialState, action) => {
       }; }
     case types.FLIP_SIGN_OPERATION: {
       const exp = state.expression;
-      const lastNumb = exp.match(/([^\d]|)([0-9.,]+$)/);
+      const lastNumb = exp.match(/(\()([^\d]|)([0-9.,]+)(\)$)|([^\d]|)([0-9.,]+$)/);
       let expAfterSlip = '';
-
-      if (lastNumb[1] !== '-' || lastNumb[1] !== '+') {
-        expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '$1(-$2)');
+      if (lastNumb[1] === '(') {
+        expAfterSlip = exp.replace(/(\()([^\d]|)([0-9.,]+)(\)$)|([^\d]|)([0-9.,]+$)/, '$3');
       }
-      if (lastNumb[1] === '-') {
-        expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '+$2');
+      if ((lastNumb[5] !== '-' && lastNumb[5] !== undefined) || (lastNumb[5] !== '+' && lastNumb[5] !== undefined)) {
+        expAfterSlip = exp.replace(/(\()([^\d]|)([0-9.,]+)(\)$)|([^\d]|)([0-9.,]+$)/, '$5(-$6)');
       }
-      if (lastNumb[1] === '+') {
-        expAfterSlip = exp.replace(/([^\d]|)([0-9.,]+$)/, '-$2');
+      if (lastNumb[5] === '-') {
+        expAfterSlip = exp.replace(/(\()([^\d]|)([0-9.,]+)(\)$)|([^\d]|)([0-9.,]+$)/, '+$6');
+      }
+      if (lastNumb[5] === '+') {
+        expAfterSlip = exp.replace(/(\()([^\d]|)([0-9.,]+)(\)$)|([^\d]|)([0-9.,]+$)/, '-$6');
       }
 
       return {
