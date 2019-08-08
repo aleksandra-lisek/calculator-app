@@ -2,7 +2,7 @@
   "name": "calculator-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/aleksandra-lisek/calculator-app",
+  "homepage": "https://aleksandra-lisek.github.io/calculator-app/",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "mathjs": "^6.0.4",
