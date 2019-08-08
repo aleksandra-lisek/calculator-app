@@ -16,22 +16,25 @@
 
 .Screen{
     height: calc(2*(100%/7));
-    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .HalfScreen{
     box-sizing: border-box;
     height: 50%;
+    padding-right: 20px;
     line-height: 1.2;
-    text-align: right;
+    width: 100%;
     display: flex;
-    text-align: right;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.HalfScreen span{
+/* .HalfScreen span{
     margin: 30px 20px;
     width: 100%;
-}
+} */
 
 .TopScreen {
     font-family: 'SamsungSharpSans-bold', Helvetica, sans-serif;

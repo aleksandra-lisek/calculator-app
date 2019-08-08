@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Textfit } from 'react-textfit';
 
 import classes from './Screen.module.css';
 
@@ -8,12 +9,21 @@ const screen = (props) => {
 
   return (
     <div className={classes.Screen}>
-      <div className={[classes.HalfScreen, classes.TopScreen].join(' ')}>
+      <Textfit
+        max={24}
+        throttle={60}
+        mode="single"
+        className={[classes.HalfScreen, classes.TopScreen].join(' ')}
+      >
         <span>{expression}</span>
-      </div>
-      <div className={[classes.HalfScreen, classes.BottomScreen].join(' ')}>
+      </Textfit>
+      <Textfit
+        max={48}
+        mode="single"
+        className={[classes.HalfScreen, classes.BottomScreen].join(' ')}
+      >
         <span>{total}</span>
-      </div>
+      </Textfit>
     </div>
   );
 };
