@@ -108,7 +108,8 @@ export default (state = initialState, action) => {
     case types.DOT_INPUT: {
       const exp = state.expression;
       let newExp = exp;
-      if (!newExp.includes('.')) {
+      const dotInput = exp.match(/[0-9.,]+$/)[0];
+      if (!dotInput.includes('.')) {
         newExp += '.';
       }
       return {
