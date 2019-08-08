@@ -46,17 +46,24 @@ export default (state = initialState, action) => {
       };
     case types.DELETE_LAST_EXPRESSION_ENTRY: {
       const exp = state.expression;
-      const delExp = exp
+      const delTotal = exp
         .split('')
         .slice(0, exp.length - 1)
         .join('');
-      const matchExp = delExp.match(/([\d])([\D])$/);
-      const stringWitoutSpec = (matchExp === null) ? delExp : delExp.split('').slice(0, delExp.length - 1).join('');
-      const newExp = (stringWitoutSpec.length === 0) ? 0 : stringWitoutSpec;
+      const matchExp = delTotal.match(/([\d]|\))([\D])$/);
+      let newExp = '';
+      const delExp = '';
+
+      if (delTotal.match(/(\D)(\()(-\d+)$/)) {
+        newExp = delTotal.replace(/(\D)(\()(-\d+)$/, '');
+      } else {
+        newExp = (matchExp === null) ? delTotal : delTotal.split('').slice(0, delTotal.length - 1).join('');
+      }
+      const newTotal = (newExp.length === 0) ? 0 : newExp;
       return {
         ...state,
-        expression: newExp,
-        total: math.evaluate(newExp),
+        expression: (newTotal === 0) ? delExp : newTotal,
+        total: math.evaluate(newTotal),
       }; }
     case types.EVALUATE_EXPRESSION: {
       const exp = state.expression;
