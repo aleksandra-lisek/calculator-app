@@ -54,8 +54,8 @@ export default (state = initialState, action) => {
       let newExp = '';
       const delExp = '';
 
-      if (delTotal.match(/(\D)(\()(-\d+)$/)) {
-        newExp = delTotal.replace(/(\D)(\()(-\d+)$/, '');
+      if (delTotal.match(/(\D|)(\()(-\d+)$/)) {
+        newExp = delTotal.replace(/(\D|)(\()(-\d+)$/, '');
       } else {
         newExp = (matchExp === null) ? delTotal : delTotal.split('').slice(0, delTotal.length - 1).join('');
       }
