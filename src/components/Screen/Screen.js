@@ -30,7 +30,10 @@ const screen = (props) => {
 
 screen.propTypes = {
   expression: propTypes.string.isRequired,
-  total: propTypes.number.isRequired,
+  total: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.number,
+  ]).isRequired,
 };
 
 export default screen;
