@@ -1,8 +1,14 @@
-###Calculator App
+# Calculator App
 Calculator React App that implements the concept of React with Redux.
 
+### Installing
+    ```
+     cd ../calculator-app
+     npm install
+     npm start
+    ```
+## Built With
 
-##Built With:
-
-React
-airbnb eslint
+* React
+* Redux
+* math.js library
