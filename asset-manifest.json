@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/repository-name/static/css/main.a7320003.chunk.css",
+    "main.js": "/repository-name/static/js/main.8fe7e685.chunk.js",
+    "main.js.map": "/repository-name/static/js/main.8fe7e685.chunk.js.map",
+    "runtime~main.js": "/repository-name/static/js/runtime~main.f7634681.js",
+    "runtime~main.js.map": "/repository-name/static/js/runtime~main.f7634681.js.map",
+    "static/js/2.ab3ca68f.chunk.js": "/repository-name/static/js/2.ab3ca68f.chunk.js",
+    "static/js/2.ab3ca68f.chunk.js.map": "/repository-name/static/js/2.ab3ca68f.chunk.js.map",
+    "index.html": "/repository-name/index.html",
+    "precache-manifest.cbc9ddc786dfe5df05f07f50a0c05ce2.js": "/repository-name/precache-manifest.cbc9ddc786dfe5df05f07f50a0c05ce2.js",
+    "service-worker.js": "/repository-name/service-worker.js",
+    "static/css/main.a7320003.chunk.css.map": "/repository-name/static/css/main.a7320003.chunk.css.map",
+    "static/media/Screen.module.css": "/repository-name/static/media/SamsungSharpSans-Bold.60558de6.woff",
+    "static/media/Button.module.css": "/repository-name/static/media/SamsungSharpSans-Regular.0fabfcc1.woff",
+    "static/media/calc_desktop.png": "/repository-name/static/media/calc_desktop.52788978.png"
+  }
+}
