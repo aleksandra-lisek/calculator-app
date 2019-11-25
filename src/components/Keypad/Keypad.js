@@ -1,10 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import styled from 'styled-components';
 
 import Button from '../Button/Button';
-import { keypadKeys } from '../constants';
-import classes from './Keypad.module.css';
+import { keypadKeys, specialKeys } from '../constants';
 
+const KeypadStyled = styled.div`
+  width: 100%;
+  height: calc(5*(100%/7));
+
+`;
 
 const keypad = (props) => {
   const handleClick = (key) => {
@@ -41,13 +46,14 @@ const keypad = (props) => {
         <Button
           key={key}
           buttonKey={key}
+          isSpecial={specialKeys.includes(key)}
           onButtonClick={handleClick}
         />
       );
     });
   });
 
-  return <div className={classes.Keypad}>{buttons}</div>;
+  return <KeypadStyled>{buttons}</KeypadStyled>;
 };
 
 keypad.propTypes = {

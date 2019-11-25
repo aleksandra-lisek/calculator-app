@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-import classes from './Calculator.module.css';
+
 import Screen from '../Screen/Screen';
 import Keypad from '../Keypad/Keypad';
 import * as fromCalculator from '../../store/storeIndex';
 import {
-  calculate, 
+  calculate,
   deleteLastEntry,
   clear,
   evaluateExpression,
@@ -16,12 +17,25 @@ import {
   dividingByZero,
 } from '../../store/actions/calculate';
 
+const CalculatorStyled = styled.div`
+width: 100vw;
+height: 100vh;
+
+@media (min-width: 650px) {
+        width: 370px;
+        height: 560px;
+        -webkit-box-shadow: 0px 0px 69px -16px rgba(0,0,0,0.73);
+        -moz-box-shadow: 0px 0px 69px -16px rgba(0,0,0,0.73);
+        box-shadow: 0px 0px 69px -16px rgba(0,0,0,0.73);
+}
+
+`;
 const Calculator = (props) => {
   return (
-    <div className={classes.Calculator}>
+    <CalculatorStyled>
       <Screen {...props} />
       <Keypad {...props} />
-    </div>
+    </CalculatorStyled>
 
   );
 };
