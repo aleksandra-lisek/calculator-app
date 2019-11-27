@@ -1,7 +1,7 @@
 import { create, all } from 'mathjs';
 
 import * as types from '../types';
-import calculate from '../../expressions/calculate';
+// import calculate from '../../expressions/calculate';
 
 const config = { };
 const math = create(all, config);
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expression,
-        total: calculate(expression) || state.total,
+        total: state.total,
       }; }
     case types.CLEAR_EXPRESSION:
       return {
