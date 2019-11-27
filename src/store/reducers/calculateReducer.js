@@ -81,7 +81,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expression: newExp,
-        total: math.evaluate(newExp),
+        total: state.total,
       }; }
     case types.FLIP_SIGN_OPERATION: {
       const exp = state.expression;
@@ -103,7 +103,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expression: expAfterSlip,
-        total: math.evaluate(expAfterSlip),
+        total: state.total,
       }; }
     case types.DOT_INPUT: {
       const exp = state.expression;
@@ -115,7 +115,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         expression: newExp,
-        total: math.evaluate(newExp),
+        total: state.totaltotal,
       }; }
     case types.DIVIDING_BY_ZERO: {
       const exp = state.expression;
@@ -124,7 +124,7 @@ export default (state = initialState, action) => {
       if (newExp.includes('/0')) {
         newTotal = "Don't divide by ZERO!";
       } else {
-        newTotal = math.evaluate(newExp);
+        newTotal = state.total;
       }
       return {
         ...state,
